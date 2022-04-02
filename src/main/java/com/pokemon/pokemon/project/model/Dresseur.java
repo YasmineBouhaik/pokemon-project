@@ -22,7 +22,6 @@ public class Dresseur {
 	private String ville;
 	
 	
-	
 	public Dresseur(String name_, String ville) {
 		super();
 		this.name_ = name_;

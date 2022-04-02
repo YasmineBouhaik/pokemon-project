@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -14,6 +17,12 @@ public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@ManyToOne
+	@JoinTable(name = "pokemon_dresse",
+		joinColumns = @JoinColumn(name = "dresseur_id"),
+	    inverseJoinColumns = @JoinColumn(name = "pokemon_id"))
+	private Dresseur dresseur;
 	
 	@Column(name = "number_")
 	private Integer number_;
@@ -36,7 +45,7 @@ public class Pokemon {
 		this.evolution = evolution;
 	}
 	
-	
+
 	public Pokemon() {
 		super();
 	}
@@ -72,6 +81,7 @@ public class Pokemon {
 	public void setEvolution(Long evolution) {
 		this.evolution = evolution;
 	}
+	
 }
 
 
