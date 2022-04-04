@@ -20,8 +20,8 @@ h1 {
 }
 
 #poke {
-  -webkit-filter: brightness(0);
-          filter: brightness(0);
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
   width: 20%;
   margin-left: auto;
   margin-right: auto;

@@ -1,24 +1,22 @@
 
 
-fetch('https://pokeapi.co/api/v2/pokemon?limit=151', {
-    contentType: 'application/*',
-    headers: {
-        'Access-Control-Allow-Origin':'*',
-        'Access-Control-Allow-Headers':'application/*',
-    } 
-})
+fetch('https://pokeapi.co/api/v2/pokemon?limit=25')
 .then((response) => response.json())
 .then((response) => {
-    let random = Math.random() * (151 - 0) + 0;
+
+    let random = Math.random() * (25 - 0) + 0;
     let resultOfRandom = 0; 
+
     for(i = 0; i < random; i++){
         resultOfRandom = response.results.lastIndexOf(response.results[i]);
     }
-    // console.log(response.results[resultOfRandom]); 
 
     
     const number = getPokemonNumber(response.results[resultOfRandom].url)
     const finalUrl = getPokemonImage(number)
+    console.log(getPokemonImage(number));
+    console.log(response.results.url);
+    console.log(response.results[resultOfRandom]);
     
     let poke = document.getElementById('poke').setAttribute('src', finalUrl);
 
