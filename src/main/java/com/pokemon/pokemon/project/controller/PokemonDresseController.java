@@ -1,4 +1,4 @@
-package com.pokemon.pokemon.project.controller;
+/*package com.pokemon.pokemon.project.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,4 +50,4 @@ public class PokemonDresseController {
 	
 	
 	
-}
+}*/

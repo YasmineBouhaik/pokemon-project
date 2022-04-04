@@ -1,16 +1,13 @@
 package com.pokemon.pokemon.project.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+
 import javax.persistence.Table;
-import javax.persistence.JoinColumn;
+
 
 
 @Entity
@@ -30,14 +27,9 @@ public class PokemonDresse {
 	@Column(name = "nickname")
 	private String nickname;
 	
-	@ManyToMany
-	@JoinTable(name = "pokemon_dresse",
-			   joinColumns = @JoinColumn(name = "pokemon_id"),
-			   inverseJoinColumns = @JoinColumn(name = "dresseur_id"))
-	private List<Pokemon> pokemon;
 	
 	public PokemonDresse(Long id, Long pokemon_id, Long dresseur_id, String nickname) {
-		super();
+		//super();
 		this.id = id;
 		this.pokemon_id = pokemon_id;
 		this.dresseur_id = dresseur_id;
@@ -46,7 +38,7 @@ public class PokemonDresse {
 
 
 	public PokemonDresse() {
-		super();
+		//super();
 	}
 	
 	public Long getId() {
@@ -75,3 +67,5 @@ public class PokemonDresse {
 	}
 	
 }
+
+

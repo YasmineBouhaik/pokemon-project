@@ -8,3 +8,4 @@ import com.pokemon.pokemon.project.model.PokemonDresse;
 public interface PokemonDresseRepository extends JpaRepository<PokemonDresse, Long> {
 
 }
+

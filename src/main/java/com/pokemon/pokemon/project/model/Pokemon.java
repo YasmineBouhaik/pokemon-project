@@ -1,14 +1,19 @@
 package com.pokemon.pokemon.project.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "pokemon")
@@ -17,12 +22,15 @@ public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	
-	@ManyToOne
-	@JoinTable(name = "pokemon_dresse",
-		joinColumns = @JoinColumn(name = "dresseur_id"),
-	    inverseJoinColumns = @JoinColumn(name = "pokemon_id"))
-	private Dresseur dresseur;
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pokemon")
+	private Set<Dresseur> dresseur = new HashSet<>();
+
+	
+	//@Column(name = "dresseur")
+	//private Dresseur dresseur;
 	
 	@Column(name = "number_")
 	private Integer number_;
@@ -37,6 +45,7 @@ public class Pokemon {
 	private Long evolution;
 	
 	
+	
 	public Pokemon(Integer number_, String name_, Integer health_points, Long evolution) {
 		super();
 		this.number_ = number_;
@@ -45,6 +54,7 @@ public class Pokemon {
 		this.evolution = evolution;
 	}
 	
+
 
 	public Pokemon() {
 		super();
@@ -80,6 +90,18 @@ public class Pokemon {
 	}
 	public void setEvolution(Long evolution) {
 		this.evolution = evolution;
+	}
+	public Set<Dresseur> getDresseur() {
+		return dresseur;
+	}
+	public Set<Dresseur> setDresseur() {
+		return dresseur;
+	}
+
+
+	public void add(Pokemon pokemon) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
