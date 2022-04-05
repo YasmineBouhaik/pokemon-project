@@ -1,10 +1,14 @@
 package com.pokemon.pokemon.project.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +31,7 @@ public class Pokemon {
 	@Column(name = "evolution")
 	private Long evolution;
 	
+
 	
 	public Pokemon(Integer number_, String name_, Integer health_points, Long evolution) {
 		super();
