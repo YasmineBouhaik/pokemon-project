@@ -33,6 +33,8 @@ public class PokemonController {
 		return this.pokemonRepository.findAll();
 	}
 	
+	
+	
 	//GET READ BY ID
 	
 	@GetMapping("/pokemon/{id}")

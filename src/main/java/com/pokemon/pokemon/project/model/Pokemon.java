@@ -10,7 +10,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -32,6 +35,16 @@ public class Pokemon {
 	//@Column(name = "dresseur")
 	//private Dresseur dresseur;
 	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "pokemon_est_de_type",
+			joinColumns = { @JoinColumn(name = "pokemon_id")},
+			inverseJoinColumns = { @JoinColumn(name = "type_id")})
+	
+	private Set<TypePokemon> typepokemon = new HashSet<>();
+
+
+
+
 	@Column(name = "number_")
 	private Integer number_;
 	
@@ -97,6 +110,16 @@ public class Pokemon {
 	public Set<Dresseur> setDresseur() {
 		return dresseur;
 	}
+
+
+	public Set<TypePokemon> getTypepokemon() {
+		return typepokemon;
+	}
+
+	public void setTypepokemon(Set<TypePokemon> typepokemon) {
+		this.typepokemon = typepokemon;
+	}
+
 
 
 	public void add(Pokemon pokemon) {
