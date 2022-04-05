@@ -20,28 +20,17 @@ public class PokemonDressed {
 	@EmbeddedId
 	private PrimaryKeyPokemonDressed id = new PrimaryKeyPokemonDressed();
 	
-//	@Column (name = "pokemon_id")
-//	private Long pokemon_id;
-//
-//	@Column (name = "dresseur_id")
-//	private Long dresseur_id;
 
 	@Column(name = "nickname")
 	private String nickname;
 	
 	
 	public PokemonDressed(PrimaryKeyPokemonDressed id, Long pokemon_id, Long dresseur_id, String nickname) {
-		//super();
 		this.id = id;
-//		this.pokemon_id = pokemon_id;
-//		this.dresseur_id = dresseur_id;
 		this.nickname = nickname;
 	}
 
 
-	public PokemonDressed() {
-		//super();
-	}
 	
 	public PrimaryKeyPokemonDressed getId() {
 		return id;
