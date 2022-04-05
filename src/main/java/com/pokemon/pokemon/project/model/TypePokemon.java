@@ -1,6 +1,5 @@
 package com.pokemon.pokemon.project.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,15 +13,24 @@ public class TypePokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(name = "label")
 	private String label;
 	
+	public TypePokemon(Long id, String label) {
+		//super();
+		this.id = id;
+		this.label = label;
+	}
 
-	public Long getId() {
+
+	public TypePokemon() {
+		//super();
+	}
+	
+	public Long getid() {
 		return id;
 	}
-	public void setId(Long id) {
+	
+	public void setid(Long id) {
 		this.id = id;
 	}
 	public String getLabel() {
