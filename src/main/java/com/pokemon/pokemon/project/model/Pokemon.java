@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Table(name = "pokemon")
 public class Pokemon {
 	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -74,6 +76,12 @@ public class Pokemon {
 	}
 
 
+  	@ManyToMany
+    @JoinTable( name = "pokemon_dresse",
+                joinColumns = @JoinColumn( name = "pokemon_id" ),
+                inverseJoinColumns = @JoinColumn( name = "dresseur_id" ) )
+    private List<Dresseur> dresseurs = new ArrayList<>();
+	
 	public Long getId() {
 		return id;
 	}

@@ -30,7 +30,6 @@ public class Dresseur {
 	
 	private Set<Pokemon> pokemon = new HashSet<>();
 	
-
 	@Column(name = "name_")
 	private String name_;
 	
@@ -55,18 +54,23 @@ public class Dresseur {
 	public Long getId() {
 		return id;
 	}
+	
 	public void setId(Long id) {
 		this.id = id;
 	}
+	
 	public String getName_() {
 		return name_;
 	}
+	
 	public void setName_(String name_) {
 		this.name_ = name_;
 	}
+	
 	public String getVille() {
 		return ville;
 	}
+	
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
@@ -88,5 +92,12 @@ public class Dresseur {
 
 
 	
+	
+	public Set<Pokemon> getPokemon() {
+		return pokemon;
+	}
+	public void setPokemon(Set<Pokemon> pokemon) {
+		this.pokemon = pokemon;
+	}
 	
 }
