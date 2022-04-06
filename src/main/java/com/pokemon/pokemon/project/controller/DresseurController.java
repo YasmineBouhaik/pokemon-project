@@ -17,7 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.pokemon.pokemon.project.exception.ResourceNotFoundException;
 import com.pokemon.pokemon.project.model.Dresseur;
+import com.pokemon.pokemon.project.model.Pokemon;
 import com.pokemon.pokemon.project.repository.DresseurRepository;
+import com.pokemon.pokemon.project.repository.PokemonRepository;
 
 @RestController
 @RequestMapping
@@ -25,6 +27,9 @@ public class DresseurController {
 	
 	@Autowired
 	private DresseurRepository dresseurRepository;
+	
+	@Autowired
+	private PokemonRepository pokemonRepository;
 	
 	//GET READ
 	
@@ -53,20 +58,17 @@ public class DresseurController {
 	
 	//UPDATE
 	
-	@PutMapping("dresseur/{id}")
-	public ResponseEntity<Dresseur> updateDresseur(@PathVariable(value = "id") Long dresseurId, 
-			@RequestBody Dresseur dresseurDetails) throws ResourceNotFoundException {
-		
-		Dresseur dresseur = dresseurRepository.findById(dresseurId)
-				.orElseThrow(() -> new ResourceNotFoundException("Dresseur not found for this id :: " + dresseurId));
-		
-		dresseur.setName_(dresseurDetails.getName_());
-		dresseur.setVille(dresseurDetails.getVille());
-		
-		
-		return ResponseEntity.ok(this.dresseurRepository.save(dresseur));
-		
+	@PutMapping("/{dresseurId}/{pokemon_dresse}/{pokemonId}")
+	Dresseur dressePokemonToDresseur(
+			@PathVariable Long dresseurId,
+			@PathVariable Long pokemonId
+	) {
+		Dresseur dresseur = dresseurRepository.findById(dresseurId).get();
+		Pokemon pokemon = pokemonRepository.findById(pokemonId).get();
+		dresseur.Pokemon(pokemon);
+		return dresseurRepository.save(dresseur);
 	}
+	
 	
 	//DELETE
 	

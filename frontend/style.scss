@@ -7,6 +7,48 @@ $orange: #e3621c;
     font-family: 'Pokemon Solid', sans-serif;
 }
 
+ //animation 
+//  @keyframes rotate {
+//     from {
+//         transform: rotate(0deg);
+//     }
+//     to {
+//         transform: rotate(360deg);
+//     }
+    
+// }
+
+@keyframes animation {
+
+    from {
+        transform: rotate(0deg) scale(2);
+
+    }
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+@keyframes hyperballappear {
+    
+    from {
+        left: -50%;
+    }
+    to {
+        left: 25%
+    }
+}
+@keyframes masterballappear {
+    
+    from {
+        right: -50%;
+    }
+    to {
+        right: 25%
+    }
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -15,9 +57,11 @@ body{
     padding: 0;
 
 }
-
+#foobar { display: none }
 .center{
     position: relative;
+    overflow: hidden;
+    color: black;
     margin: 0;
     padding: 0;
     background-color: $red;
@@ -171,4 +215,84 @@ body{
     100%{
         opacity: 1;
     }
+    
+}
+
+.container--acceuil {
+    background-image: url(./assets/pokemonmap.png);
+    background-size: cover;
+    background-position: center center;
+    position: absolute;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 80vh;
+    width: 80vw;
+    background-color: $blue;
+    #leftpic, #rightpic {
+        height: 100%;
+        width: 50%;
+        background-color: blue;
+        border: 10px black solid;
+        box-sizing: border-box;
+        opacity: 1;
+        transition: 2s;
+    }
+    #leftpic {
+        background-image: url(./assets/leftpic.jpg);
+        background-size: cover;
+    }
+    #rightpic {
+        background-image: url(./assets/rightpic.jpg);
+        background-size: cover;
+    }
+    .pokeballacceuil {
+        // display: block;
+        position: absolute;
+        background: none;
+        border: none;
+
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-repeat: no-repeat;
+        height: 150px;
+        width: 150px;
+        background-size: contain;
+        background-image: url(./assets/ball.png);
+        &:hover {
+            animation: animation 1s ease-in-out;
+        } 
+    }
+}
+.hyperball, .masterball {
+    height: 200px;
+    cursor: pointer;
+    width: 200px;
+    transform: translate(0, -50%);
+    top: 50%;
+    position: absolute;
+    z-index: 0;
+    border: none;
+    background: transparent;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: none;
+}
+.hyperball {
+    left: -50%;
+    background-image: url(./assets/kindpng_1075632.png);
+}
+.masterball {
+    right: -50%;
+    background-image: url(./assets/pngkit_master-ball-png_2289581.png);
+    
+
+
 }
