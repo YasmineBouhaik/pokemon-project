@@ -6,22 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Pokemon</title>
+    <link href="http://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
 </head>
 <body>
     <div class="center">
         <img id="ball" src="assets/ball.png" alt="pokeball" onclick="launchGame()">
 
         <div id="picture">
+            <button id="restart">Restart</button>
+            <div id="score_container">
+                <p id="score_incrementation">0</p>
+                <p id="slash">/</p>
+                <p id="total">0</p>
+            </div>
 
             <div id="container">
                 <div id="quizz">
                     <img id="poke" alt="Pokemon">
                 </div>
-                <div class="props">
-                    <button id="prop1">pikachu</button>
-                    <button id="prop2">pikachu</button>
-                    <button id="prop3">pikachu</button>
+                <div id="props">
+
                 </div>
+
+  
             </div>
         </div>
     </div>
