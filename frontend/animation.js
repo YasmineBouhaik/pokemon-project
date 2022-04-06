@@ -5,7 +5,8 @@ let pokeballpic = document.getElementById("animation");
 let pokeballgame = document.getElementById("animation2");
 let pokeballgame2 = document.getElementById("animation3");
 console.log(buttonclicked);
-
+var sample = document.getElementById("foobar");
+sample.play();
 buttonclicked.addEventListener('click', () => {
     leftpic.style.marginRight = '100%';
     rightpic.style.marginLeft = '100%';
