@@ -1,3 +1,7 @@
+* {
+  font-family: 'Pokemon Solid', sans-serif;
+}
+
 @-webkit-keyframes animation {
   from {
     -webkit-transform: rotate(0deg) scale(2);
@@ -82,30 +86,65 @@ body {
   background-color: #fb1d20;
   height: 100vh;
   width: 100%;
+  overflow: hidden;
 }
 
-.center .picture {
+.center #ball {
+  width: 45%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.center #ball:hover {
+  -webkit-animation: giggle 0.3s ease-in-out;
+          animation: giggle 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.center #picture {
   position: absolute;
   left: 50%;
   top: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
-  display: block;
   margin: 0 auto;
-  width: 80vw;
-  height: 80vh;
+  width: 90vw;
+  height: 90vh;
   background-image: url(./assets/poke.gif);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  display: none;
 }
 
-h1 {
-  font-size: 100px;
-  margin-top: auto;
-  margin-bottom: auto;
-  color: black;
-  text-align: center;
+.center #picture #score_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  position: absolute;
+  left: 65em;
+}
+
+.center #picture #score_container #score_incrementation {
+  font-size: 80px;
+  color: #4067af;
+}
+
+.center #picture #score_container #slash {
+  font-size: 80px;
+  color: #f9e112;
+}
+
+.center #picture #score_container #total {
+  font-size: 80px;
+  color: #4067af;
 }
 
 #container {
@@ -113,6 +152,36 @@ h1 {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+
+#container #props {
+  width: 55%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-top: 50px;
+}
+
+#container #props button {
+  font-size: 32px;
+  cursor: pointer;
+  letter-spacing: 5px;
+  color: #f9e112;
+  background: #4067af;
+  border-radius: 10px;
+  line-height: 40px;
+  border: none;
+}
+
+#container #props button:hover {
+  -webkit-animation: giggle 0.2s ease-in-out forwards;
+          animation: giggle 0.2s ease-in-out forwards;
 }
 
 #container #bg {
@@ -133,11 +202,88 @@ h1 {
 }
 
 #poke {
-  -webkit-filter: brightness(1);
-          filter: brightness(1);
+  -webkit-filter: brightness(0);
+          filter: brightness(0);
   width: 20%;
-  margin-left: auto;
   margin-right: auto;
+  margin-left: 220px;
+  margin-top: 90px;
+}
+
+@-webkit-keyframes giggle {
+  30% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  70% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes giggle {
+  30% {
+    -webkit-transform: rotate(-5deg);
+            transform: rotate(-5deg);
+  }
+  70% {
+    -webkit-transform: rotate(5deg);
+            transform: rotate(5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@-webkit-keyframes gameLaunched {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0.6;
+    right: 500px;
+    bottom: 100px;
+    -webkit-transform: scale(0) rotate(350deg);
+            transform: scale(0) rotate(350deg);
+  }
+}
+
+@keyframes gameLaunched {
+  0% {
+    -webkit-transform: scale(1) rotate(0deg);
+            transform: scale(1) rotate(0deg);
+  }
+  100% {
+    opacity: 0.6;
+    right: 500px;
+    bottom: 100px;
+    -webkit-transform: scale(0) rotate(350deg);
+            transform: scale(0) rotate(350deg);
+  }
+}
+
+@-webkit-keyframes bgDisplay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes bgDisplay {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .container--acceuil {
