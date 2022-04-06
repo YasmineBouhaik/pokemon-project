@@ -1,12 +1,23 @@
 package com.pokemon.pokemon.project.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 
-import java.util.ArrayList;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-import javax.persistence.*;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "pokemon")
@@ -16,7 +27,26 @@ public class Pokemon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	
+	@JsonIgnore
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "pokemon")
+	private Set<Dresseur> dresseur = new HashSet<>();
+
+	
+	//@Column(name = "dresseur")
+	//private Dresseur dresseur;
+	
+	@ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinTable(name = "pokemon_est_de_type",
+			joinColumns = { @JoinColumn(name = "pokemon_id")},
+			inverseJoinColumns = { @JoinColumn(name = "type_id")})
+	
+	private Set<TypePokemon> typepokemon = new HashSet<>();
+
+
+
+
 	@Column(name = "number_")
 	private Integer number_;
 	
@@ -30,6 +60,21 @@ public class Pokemon {
 	private Long evolution;
 	
 	
+	
+	public Pokemon(Integer number_, String name_, Integer health_points, Long evolution) {
+		super();
+		this.number_ = number_;
+		this.name_ = name_;
+		this.health_points = health_points;
+		this.evolution = evolution;
+	}
+	
+
+
+	public Pokemon() {
+		super();
+	}
+
 
   	@ManyToMany
     @JoinTable( name = "pokemon_dresse",
@@ -67,12 +112,27 @@ public class Pokemon {
 	public void setEvolution(Long evolution) {
 		this.evolution = evolution;
 	}
-	public List<Dresseur> getDresseurs() {
-		return dresseurs;
+	public Set<Dresseur> getDresseur() {
+		return dresseur;
 	}
-	public void
-			setDresseurs(List<Dresseur> dresseurs) {
-		this.dresseurs = dresseurs;
+	public Set<Dresseur> setDresseur() {
+		return dresseur;
+	}
+
+
+	public Set<TypePokemon> getTypepokemon() {
+		return typepokemon;
+	}
+
+	public void setTypepokemon(Set<TypePokemon> typepokemon) {
+		this.typepokemon = typepokemon;
+	}
+
+
+
+	public void add(Pokemon pokemon) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

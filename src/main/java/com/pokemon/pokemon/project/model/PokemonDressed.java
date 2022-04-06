@@ -1,13 +1,8 @@
 package com.pokemon.pokemon.project.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import javax.persistence.Table;
 
@@ -19,17 +14,24 @@ public class PokemonDressed {
 	
 	@EmbeddedId
 	private PrimaryKeyPokemonDressed id = new PrimaryKeyPokemonDressed();
-	
+
+//	@Column (name = "pokemon_id")
+//	private Long pokemon_id;
+//
+//	@Column (name = "dresseur_id")
+//	private Long dresseur_id;
+
 
 	@Column(name = "nickname")
 	private String nickname;
 	
 	
 	public PokemonDressed(PrimaryKeyPokemonDressed id, Long pokemon_id, Long dresseur_id, String nickname) {
+		//super();
 		this.id = id;
+
 		this.nickname = nickname;
 	}
-
 
 	
 	public PrimaryKeyPokemonDressed getId() {
@@ -58,5 +60,5 @@ public class PokemonDressed {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
+
 }

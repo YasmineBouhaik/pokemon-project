@@ -1,12 +1,19 @@
 package com.pokemon.pokemon.project.model;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
-import javax.persistence.*;
-
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "dresseur")
@@ -29,6 +36,21 @@ public class Dresseur {
 	@Column(name = "ville")
 	private String ville;
 	
+	@Column(name = "nickname")
+	private String nickname;
+	
+	
+	public Dresseur(String name_, String ville, String nickname) {
+		super();
+		this.name_ = name_;
+		this.ville = ville;
+	}
+
+
+
+	public Dresseur() {
+		super();
+	}
 	public Long getId() {
 		return id;
 	}
@@ -52,6 +74,24 @@ public class Dresseur {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
+
+	public Set<Pokemon> getPokemon() {
+		return pokemon;
+	}
+	
+	public Set<Pokemon> setPokemon() {
+		return pokemon;
+	}
+	
+
+
+	public void Pokemon(Pokemon pokemon) {
+		pokemon.add(pokemon);
+	}
+
+
+	
 	
 	public Set<Pokemon> getPokemon() {
 		return pokemon;
