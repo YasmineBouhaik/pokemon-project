@@ -67,6 +67,14 @@ public class Pokemon {
 	public void setEvolution(Long evolution) {
 		this.evolution = evolution;
 	}
+	public List<Dresseur> getDresseurs() {
+		return dresseurs;
+	}
+	public void
+			setDresseurs(List<Dresseur> dresseurs) {
+		this.dresseurs = dresseurs;
+	}
+	
 }
 
 

@@ -1,3 +1,61 @@
+@-webkit-keyframes animation {
+  from {
+    -webkit-transform: rotate(0deg) scale(2);
+            transform: rotate(0deg) scale(2);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes animation {
+  from {
+    -webkit-transform: rotate(0deg) scale(2);
+            transform: rotate(0deg) scale(2);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes hyperballappear {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 25%;
+  }
+}
+
+@keyframes hyperballappear {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 25%;
+  }
+}
+
+@-webkit-keyframes masterballappear {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 25%;
+  }
+}
+
+@keyframes masterballappear {
+  from {
+    right: -50%;
+  }
+  to {
+    right: 25%;
+  }
+}
+
 body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -13,6 +71,8 @@ body {
 
 .center {
   position: relative;
+  overflow: hidden;
+  color: black;
   margin: 0;
   padding: 0;
   background-color: #fb1d20;
@@ -74,5 +134,97 @@ h1 {
   width: 20%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.container--acceuil {
+  background-image: url(./assets/pokemonmap.png);
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  overflow: hidden;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 80vh;
+  width: 80vw;
+  background-color: #4067af;
+}
+
+.container--acceuil #leftpic, .container--acceuil #rightpic {
+  height: 100%;
+  width: 50%;
+  background-color: blue;
+  border: 10px black solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  opacity: 1;
+  -webkit-transition: 2s;
+  transition: 2s;
+}
+
+.container--acceuil #leftpic {
+  background-image: url(./assets/leftpic.jpg);
+  background-size: cover;
+}
+
+.container--acceuil #rightpic {
+  background-image: url(./assets/rightpic.jpg);
+  background-size: cover;
+}
+
+.container--acceuil .pokeballacceuil {
+  position: absolute;
+  background: none;
+  border: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background-repeat: no-repeat;
+  height: 150px;
+  width: 150px;
+  background-size: contain;
+  background-image: url(./assets/ball.png);
+}
+
+.container--acceuil .pokeballacceuil:hover {
+  -webkit-animation: animation 1s ease-in-out;
+          animation: animation 1s ease-in-out;
+}
+
+.hyperball, .masterball {
+  height: 200px;
+  cursor: pointer;
+  width: 200px;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  top: 50%;
+  position: absolute;
+  z-index: 0;
+  border: none;
+  background: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: none;
+}
+
+.hyperball {
+  left: -50%;
+  background-image: url(./assets/kindpng_1075632.png);
+}
+
+.masterball {
+  right: -50%;
+  background-image: url(./assets/pngkit_master-ball-png_2289581.png);
 }
 /*# sourceMappingURL=style.css.map */
